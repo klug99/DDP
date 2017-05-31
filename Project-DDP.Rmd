@@ -1,0 +1,53 @@
+---
+title: "Body Mass Index (BMI) Calculator"
+author: "Minseo Park"
+date: "05/31/2017"
+output: slidy_presentation
+---
+
+## What is BMI?
+Body mass index (BMI) is a measure of body fat based on height and weight that applies to adult men and women.    
+
+The World Health Organization (WHO) proposes the following classification:
+
+-BMI <18.5 : Underweight  
+-BMI [18.5-24.9] : Normal weight  
+-BMI [25-29.9] : Overweight  
+-BMI >=30 : Obesity  
+
+## Calculating the BMI
+The formula is the following:
+
+BMI = weight(kg) / height(metres)^2
+Thus for the next example, the BMI will be:
+```{r}
+weight = 75
+height = 1.8
+BMI <- weight/height^2
+BMI
+```
+
+## Result for BMI
+
+```{r}
+BMI<-function(weight,height) {weight/(height^2)}
+##defind value variable  returned from function
+result<-function(weight,height){
+  BMI_value<-weight/(height^2)
+  ifelse(BMI_value<18.5,"Underweight",ifelse(BMI_value<25,"Normal weight",  
+                                      ifelse(BMI_value<30,"Overweight","Obesity")))
+}
+```
+
+Result Example for BMI:  
+For our example (weight=55 kg and height=1.70 m)  would be:
+```{r}
+result(55, 1.7)
+```
+
+## Summay
+The body mass index (BMI) or Quetelet index is a value derived from the mass (weight) and height of an individual.  
+
+The BMI is defined as the body mass divided by the square of the body height, and is universally expressed in units of kg/m2, resulting from mass in kilograms and height in metres.  
+
+The BMI is an attempt to quantify the amount of tissue mass (muscle, fat, and bone) in an individual, and then categorize that person as underweight, normal weight, overweight, or obese based on that value. However, there is some debate about where on the BMI scale the dividing lines between categories should be placed.[2] Commonly accepted BMI ranges are underweight: under 18.5 kg/m2, normal weight: 18.5 to 25, overweight: 25 to 30, obese: over 30. 

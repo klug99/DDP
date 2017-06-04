@@ -1,9 +1,11 @@
+##Shiny Library
 library(shiny) 
+##UI Pages
 shinyUI(
   pageWithSidebar(
     # Application title: Topic is calculating the body fat.
     headerPanel("Body Mass Index (BMI) Calculator"),
-    ##Sidebar Panel for weight/height
+    ##Sidebar Panel for weight/height: Default Setting 55kg, 1.70m
     sidebarPanel(
       numericInput('weight', 'Insert your weight(kg)', 55) ,
       numericInput('height', 'Insert your height(meter)', 1.70, min = 1.0, max = 2, step = 0.01),
@@ -20,7 +22,7 @@ shinyUI(
           tags$li('BMI >=30        : Obesity')
         )
       ),
-      
+      ##Getting the Value from the Server and then display.
       h4('Taking into account the values entered by you:'), 
       p('weight:'), verbatimTextOutput("inputweightvalue"),
       p('height:'), verbatimTextOutput("inputheightvalue"),
